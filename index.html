@@ -4,18 +4,15 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>AI & ML Curriculum</title>
-
 <style>
-    /* ===== BASIC STYLING ===== */
     body {
         margin: 0;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
         color: #fff;
-        overflow-x: hidden;
+        overflow-x: hidden; /* Prevent horizontal scroll */
     }
 
-    /* ===== NAVBAR ===== */
     nav {
         width: 96%;
         display: flex;
@@ -32,6 +29,7 @@
     nav .logo {
         font-size: 22px;
         font-weight: 700;
+        letter-spacing: 1px;
         text-transform: uppercase;
         background: linear-gradient(to right, #00c6ff, #0072ff);
         -webkit-background-clip: text;
@@ -50,7 +48,7 @@
         text-decoration: none;
         color: #dcdcdc;
         font-weight: 500;
-        transition: .3s;
+        transition: 0.3s;
     }
 
     nav ul li a:hover {
@@ -58,58 +56,139 @@
         text-shadow: 0 0 8px #00eaff;
     }
 
-    /* ===== MOBILE NAV ===== */
-    #menu-toggle { display: none; }
+    /* Hide default checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Hamburger styling */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #00eaff;
+}
+
+/* Links animation (mobile collapsed state) */
+.nav-links {
+    display: flex;
+    gap: 25px;
+    transition: 0.4s ease-in-out;
+}
+footer {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(8px);
+    margin-top: 40px;
+    padding: 30px 20px;
+    text-align: center;
+    color: #dcdcdc;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0px -8px 40px rgba(0,0,0,0.6);
+}
+
+.footer-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+}
+
+.footer-content p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 18px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.footer-links li a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #dcdcdc;
+    transition: 0.3s;
+}
+
+.footer-links li a:hover {
+    color: #00eaff;
+    text-shadow: 0 0 8px #00eaff;
+}
+
+.signature {
+    margin-top: 18px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+}
+
+.signature span {
+    background: linear-gradient(to right, #00eaff, #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    .footer-links {
+        gap: 14px;
+    }
+}
+
+/* ----------- Responsive Navbar ----------- */
+@media (max-width: 900px){
+    nav {
+        padding: 10px 20px;
+    }
+
     .hamburger {
-        display: none;
-        font-size: 28px;
-        cursor: pointer;
-        color: #00eaff;
+        display: block;
     }
 
     .nav-links {
-        display: flex;
-        gap: 25px;
-        transition: .4s ease-in-out;
+        position: absolute;
+        top: 65px;
+        right: -100%;
+        flex-direction: column;
+        background: rgba(0,0,0,0.85);
+        width: 200px;
+        padding: 20px;
+        border-radius: 10px 0 0 10px;
+        text-align: left;
+        gap: 20px;
+        backdrop-filter: blur(6px);
     }
 
-    @media (max-width: 900px){
-        .hamburger { display: block; }
-        .nav-links {
-            position: absolute;
-            top: 65px;
-            right: -100%;
-            flex-direction: column;
-            background: rgba(0,0,0,.85);
-            width: 200px;
-            padding: 20px;
-            border-radius: 10px 0 0 10px;
-            text-align: left;
-            gap: 20px;
-            backdrop-filter: blur(6px);
-        }
-        #menu-toggle:checked ~ .nav-links {
-            right: 0;
-        }
+    #menu-toggle:checked ~ .nav-links {
+        right: 0;
     }
+}
 
-    /* ===== CONTAINER ===== */
+
     .container {
         width: 92%;
         margin: 40px auto 80px auto;
-        background: rgba(255,255,255,0.04);
+        background: rgba(255, 255, 255, 0.04);
         border-radius: 14px;
         padding: 22px;
-        box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+        box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.6);
+        overflow-x: auto;
         backdrop-filter: blur(8px);
     }
 
-    /* ===== TABLE ===== */
     table {
         width: 100%;
         border-collapse: collapse;
+        text-align: left;
         font-size: 14px;
-        overflow-x: auto;
     }
 
     th, td {
@@ -117,83 +196,26 @@
         border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    thead th {
+    thead th{
         font-size: 13px;
         text-transform: uppercase;
         letter-spacing: 0.6px;
-        background: rgba(255, 255, 255, 0.04);
+        background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
     }
 
-    tr:hover td { background: rgba(255,255,255,0.04); }
+    tr:hover td{ background: rgba(255,255,255,0.02); }
 
-    /* ===== Level Coloring ===== */
-    .lvl1 td { background: rgba(255, 160, 122, 0.3); }
-    .lvl2 td { background: rgba(144, 238, 144, 0.3); }
-    .lvl3 td { background: rgba(255, 255, 102, 0.3); }
-    .lvl4 td { background: rgba(173, 216, 230, 0.3); }
+    /* Colors for each level */
+    .lvl1 td { background-color: rgba(255, 160, 122, 0.3); }  /* Coral */
+    .lvl2 td { background-color: rgba(144, 238, 144, 0.3); }  /* Light Green */
+    .lvl3 td { background-color: rgba(255, 255, 102, 0.3); }  /* Soft Yellow */
+    .lvl4 td { background-color: rgba(173, 216, 230, 0.3); }  /* Light Blue */
 
-    /* ===== MOBILE TABLE RESPONSIVE STYLING ===== */
-    @media (max-width: 750px) {
-        table, thead, tbody, th, td, tr {
-            display: block;
-        }
-
-        thead { display: none; }
-
-        tr {
-            margin-bottom: 15px;
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 10px;
-            padding: 10px;
-        }
-
-        td {
-            border: none;
-            padding: 8px 10px;
-            position: relative;
-        }
-
-        td::before {
-            content: attr(data-label);
-            font-weight: 700;
-            color: #00eaff;
-            display: block;
-            margin-bottom: 3px;
-        }
-
-        td[rowspan] {
-            display: none; /* hide rowspan elements on mobile */
-        }
+    @media (max-width: 900px){
+        th, td{ padding:10px 8px; font-size:13px }
+        nav{ padding:12px 18px }
+        .container{ width:96%; padding:16px }
     }
-
-    /* ===== FOOTER ===== */
-    footer {
-        width: 100%;
-        background: rgba(255,255,255,0.04);
-        backdrop-filter: blur(8px);
-        margin-top: 40px;
-        padding: 30px 20px;
-        text-align: center;
-        color: #dcdcdc;
-        border-top: 1px solid rgba(255,255,255,0.06);
-        box-shadow: 0 -8px 40px rgba(0,0,0,0.6);
-    }
-
-    .footer-links {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .signature span {
-        background: linear-gradient(to right, #00eaff, #00c6ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: 700;
-    }
-
 </style>
 </head>
 <body>
@@ -212,11 +234,10 @@
     </ul>
 </nav>
 
+
 <div class="container">
-<h2 style="text-align:center;">AI & Machine Learning — 4-Year Curriculum</h2>
-<p style="text-align:center; color:rgba(255,255,255,0.7); margin-top:0; margin-bottom:20px;">
-Colors indicate academic levels.
-</p>
+<h2 style="text-align:center; margin-bottom:12px;">AI & Machine Learning — 4-Year Curriculum</h2>
+<p style="text-align:center; color:rgba(255,255,255,0.7); margin-top:0; margin-bottom:20px;">Colors indicate different academic levels.</p>
 
 <table>
 <thead>
@@ -230,7 +251,6 @@ Colors indicate academic levels.
 <th>Prerequisites</th>
 </tr>
 </thead>
-
 <tbody>
 
 <!-- Year 1 -->
@@ -296,20 +316,22 @@ Colors indicate academic levels.
 </tbody>
 </table>
 </div>
-
 <footer>
-<h3>CS Program</h3>
-<p>Empowering students to become future innovators in software, AI, and research.</p>
+    <div class="footer-content">
+        <h3>CS Program</h3>
+        <p>Empowering students to become future innovators in software, AI, and research.</p>
 
-<ul class="footer-links">
-<li><a href="index.html">AI</a></li>
-<li><a href="software.html">Software</a></li>
-<li><a href="datascience.html">Data Science</a></li>
-<li><a href="GPA.html">GPA</a></li>
-</ul>
+        <ul class="footer-links">
+            <li><a href="index.html">AI</a></li>
+            <li><a href="software.html">Software</a></li>
+            <li><a href="datascience.html">Data Science</a></li>
+            <li><a href="GPA.html">GPA</a></li>
+        </ul>
+    </div>
 
-<p class="signature">Designed & Developed by <span>Ahmed Saad</span></p>
+    <p class="signature">Designed & Developed by <span>Ahmed Saad</span></p>
 </footer>
 
 </body>
 </html>
+
