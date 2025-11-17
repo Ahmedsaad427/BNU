@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>برنامج علم البيانات - دليل الطالب</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        direction: rtl;
+      }
+      h2,
+      h3 {
+        text-align: center;
+        margin: 20px 0;
+        color: #00eaff;
+      }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        backdrop-filter: blur(6px);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        table-layout: fixed;
+        word-wrap: break-word;
+        font-size: 14px;
+      }
+      th,
+      td {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 10px;
+        text-align: center;
+      }
+      thead th {
+        background: rgba(0, 255, 255, 0.1);
+        text-transform: uppercase;
+        font-size: 13px;
+      }
+      tr.lvl1 td {
+        background: rgba(255, 160, 122, 0.2);
+      } /* Coral */
+      tr.lvl2 td {
+        background: rgba(144, 238, 144, 0.2);
+      } /* Light Green */
+      tr.lvl3 td {
+        background: rgba(255, 255, 102, 0.2);
+      } /* Soft Yellow */
+      tr.lvl4 td {
+        background: rgba(173, 216, 230, 0.2);
+      } /* Light Blue */
+      tr:hover td {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .section-title {
+        font-size: 18px;
+        margin: 25px 0 10px 0;
+        text-decoration: underline;
+        color: #ffdd57;
+      }
+      .example table th {
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      nav {
+        width: 96%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(6px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      nav .logo {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #dcdcdc;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #00eaff;
+        text-shadow: 0 0 8px #00eaff;
+      }
+
+      /* Hide default checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Hamburger styling */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #00eaff;
+}
+
+/* Links animation (mobile collapsed state) */
+.nav-links {
+    display: flex;
+    gap: 25px;
+    transition: 0.4s ease-in-out;
+}
+
+/* ----------- Responsive Navbar ----------- */
+@media (max-width: 900px){
+    nav {
+        padding: 10px 20px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 65px;
+        right: -100%;
+        flex-direction: column;
+        background: rgba(0,0,0,0.85);
+        width: 200px;
+        padding: 20px;
+        border-radius: 10px 0 0 10px;
+        text-align: left;
+        gap: 20px;
+        backdrop-filter: blur(6px);
+    }
+
+    #menu-toggle:checked ~ .nav-links {
+        right: 0;
+    }
+}
+
+    </style>
+  </head>
+  <body>
+<nav>
+    <div class="logo">CS Program</div>
+
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+    <ul class="nav-links">
+        <li><a href="index.html">AI</a></li>
+        <li><a href="software.html">Software</a></li>
+        <li><a href="datascience.html">Data Science</a></li>
+        <li><a href="GPA.html">GPA</a></li>
+    </ul>
+</nav>
+
+    <div class="container">
+      <h3 class="section-title">التقديرات</h3>
+      <p>▪ تقدر نقاط كل ساعة معتمدة للمقرر للطالب طبقا للجدول التالي:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>عدد النقاط</th>
+            <th>التقدير</th>
+            <th>النسبة المئوية</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>4.00</td>
+            <td>+A</td>
+            <td>%96 فأعلى</td>
+          </tr>
+          <tr>
+            <td>3.70</td>
+            <td>A</td>
+            <td>%92 إلى أقل من %96</td>
+          </tr>
+          <tr>
+            <td>3.40</td>
+            <td>-A</td>
+            <td>%88 إلى أقل من %92</td>
+          </tr>
+          <tr>
+            <td>3.20</td>
+            <td>+B</td>
+            <td>%84 إلى أقل من %88</td>
+          </tr>
+          <tr>
+            <td>3.00</td>
+            <td>B</td>
+            <td>%80 إلى أقل من %84</td>
+          </tr>
+          <tr>
+            <td>2.80</td>
+            <td>-B</td>
+            <td>%76 إلى أقل من %80</td>
+          </tr>
+          <tr>
+            <td>2.60</td>
+            <td>+C</td>
+            <td>%72 إلى أقل من %76</td>
+          </tr>
+          <tr>
+            <td>2.40</td>
+            <td>C</td>
+            <td>%68 إلى أقل من %72</td>
+          </tr>
+          <tr>
+            <td>2.20</td>
+            <td>-C</td>
+            <td>%64 إلى أقل من %68</td>
+          </tr>
+          <tr>
+            <td>2.00</td>
+            <td>+D</td>
+            <td>%60 إلى أقل من %64</td>
+          </tr>
+          <tr>
+            <td>1.50</td>
+            <td>D</td>
+            <td>%55 إلى أقل من %60</td>
+          </tr>
+          <tr>
+            <td>1.00</td>
+            <td>-D</td>
+            <td>%50 إلى أقل من %55</td>
+          </tr>
+          <tr>
+            <td>0.00</td>
+            <td>F</td>
+            <td>أقل من %50</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>▪ تمنح التقديرات عند التخرج طبقا للجدول التالي:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>المعدل التراكمي</th>
+            <th>التقدير المناظر</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>3.5 فأكثر</td>
+            <td>امتياز</td>
+          </tr>
+          <tr>
+            <td>من 3.0 إلى أقل من 3.5</td>
+            <td>جيد جدا</td>
+          </tr>
+          <tr>
+            <td>من 2.5 إلى أقل من 3.0</td>
+            <td>جيد</td>
+          </tr>
+          <tr>
+            <td>من 2.0 إلى أقل من 2.5</td>
+            <td>مقبول</td>
+          </tr>
+          <tr>
+            <td>من 1.0 إلى أقل من 2.0</td>
+            <td>ضعيف</td>
+          </tr>
+          <tr>
+            <td>أقل من 1.0</td>
+            <td>ضعيف جدا</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="section-title">مثال حساب المعدل الفصلي والتراكمي</h3>
+      <div class="example">
+        <h4>الفصل الأول:</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>المقرر</th>
+              <th>الساعات</th>
+              <th>% الطادير</th>
+              <th>المعدل</th>
+              <th>عدد النقاط</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>عهس001</td>
+              <td>3</td>
+              <td>75</td>
+              <td>+C</td>
+              <td>2.60</td>
+            </tr>
+            <tr>
+              <td>عام001</td>
+              <td>2</td>
+              <td>82</td>
+              <td>B</td>
+              <td>3.00</td>
+            </tr>
+            <tr>
+              <td>صنع003</td>
+              <td>3</td>
+              <td>66</td>
+              <td>-C</td>
+              <td>2.20</td>
+            </tr>
+            <tr>
+              <td>ميا101</td>
+              <td>4</td>
+              <td>90</td>
+              <td>-A</td>
+              <td>3.40</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>المجموع: 12 ساعات، 34 نقاط، المعدل الفصلي = 34 ÷ 12 = 2.83</p>
+
+        <h4>الفصل الثاني:</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>المقرر</th>
+              <th>الساعات</th>
+              <th>% الطادير</th>
+              <th>المعدل</th>
+              <th>عدد النقاط</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>عهس006</td>
+              <td>3</td>
+              <td>50</td>
+              <td>-D</td>
+              <td>1.00</td>
+            </tr>
+            <tr>
+              <td>عام002</td>
+              <td>2</td>
+              <td>73</td>
+              <td>+C</td>
+              <td>2.60</td>
+            </tr>
+            <tr>
+              <td>صنع004</td>
+              <td>3</td>
+              <td>88</td>
+              <td>-A</td>
+              <td>3.40</td>
+            </tr>
+            <tr>
+              <td>ميا201</td>
+              <td>3</td>
+              <td>68</td>
+              <td>C</td>
+              <td>2.40</td>
+            </tr>
+            <tr>
+              <td>ميا202</td>
+              <td>3</td>
+              <td>76</td>
+              <td>B</td>
+              <td>3.00</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>المجموع: 14 ساعات، 34.6 نقاط، المعدل الفصلي = 34.6 ÷ 14 = 2.47</p>
+
+        <p>المعدل التراكمي = (34 + 34.6) ÷ (12 + 14) = 2.64</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Software Development Curriculum</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        color: #fff;
+        overflow-x: hidden;
+    }
+
+    nav {
+        width: 96%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(6px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    nav .logo {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #dcdcdc;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #00eaff;
+        text-shadow: 0 0 8px #00eaff;
+    }
+    /* Hide default checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Hamburger styling */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #00eaff;
+}
+
+/* Links animation (mobile collapsed state) */
+.nav-links {
+    display: flex;
+    gap: 25px;
+    transition: 0.4s ease-in-out;
+}
+
+/* ----------- Responsive Navbar ----------- */
+@media (max-width: 900px){
+    nav {
+        padding: 10px 20px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 65px;
+        right: -100%;
+        flex-direction: column;
+        background: rgba(0,0,0,0.85);
+        width: 200px;
+        padding: 20px;
+        border-radius: 10px 0 0 10px;
+        text-align: left;
+        gap: 20px;
+        backdrop-filter: blur(6px);
+    }
+
+    #menu-toggle:checked ~ .nav-links {
+        right: 0;
+    }
+}
+
+
+    .container {
+        width: 92%;
+        margin: 40px auto 80px auto;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 14px;
+        padding: 22px;
+        box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.6);
+        overflow-x: hidden;
+        backdrop-filter: blur(8px);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        font-size: 14px;
+        table-layout: fixed;
+        word-wrap: break-word;
+    }
+
+    th, td {
+        padding: 12px 14px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    thead th{
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    }
+
+    tr:hover td{ background: rgba(255,255,255,0.02); }
+
+    /* Colors for each level/year */
+    .lvl1 td { background-color: rgba(255, 160, 122, 0.3); }  /* Coral */
+    .lvl2 td { background-color: rgba(144, 238, 144, 0.3); }  /* Light Green */
+    .lvl3 td { background-color: rgba(255, 255, 102, 0.3); }  /* Soft Yellow */
+    .lvl4 td { background-color: rgba(173, 216, 230, 0.3); }  /* Light Blue */
+
+    @media (max-width: 900px){
+        th, td{ padding:10px 8px; font-size:13px }
+        nav{ padding:12px 18px }
+        .container{ width:96%; padding:16px }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">CS Program</div>
+
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+    <ul class="nav-links">
+        <li><a href="index.html">AI</a></li>
+        <li><a href="software.html">Software</a></li>
+        <li><a href="datascience.html">Data Science</a></li>
+        <li><a href="GPA.html">GPA</a></li>
+    </ul>
+</nav>
+
+
+
+<div class="container">
+<h2 style="text-align:center; margin-bottom:12px;">Software Development — 4-Year Curriculum</h2>
+<p style="text-align:center; color:rgba(255,255,255,0.7); margin-top:0; margin-bottom:20px;">Colors indicate different academic levels.</p>
+
+<table>
+<thead>
+<tr>
+<th>Semester</th>
+<th>Code</th>
+<th>Subject</th>
+<th>Credits</th>
+<th>Lec</th>
+<th>Tut</th>
+<th>Lab</th>
+<th>Prerequisites</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- Year 1 -->
+<tr class="lvl1"><td rowspan="6">First Semester</td><td>GEN104</td><td>History of Sci., Engineering & Technology</td><td>2</td><td>2</td><td>0</td><td>0</td><td>-</td></tr>
+<tr class="lvl1"><td>BAS120</td><td>Differential and Integral Calculus</td><td>3</td><td>2</td><td>2</td><td>0</td><td>-</td></tr>
+<tr class="lvl1"><td>BAS121</td><td>Physics</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
+<tr class="lvl1"><td>BAS122</td><td>Discrete Mathematics</td><td>3</td><td>2</td><td>2</td><td>0</td><td>-</td></tr>
+<tr class="lvl1"><td>BCS101</td><td>Computer Science Fundamentals</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
+<tr class="lvl1"><td>BCS102</td><td>Structured Programming</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
+
+<tr class="lvl1"><td rowspan="6">Second Semester</td><td>GEN10X</td><td>Elective (1) From Language Courses List</td><td>2</td><td>1</td><td>2</td><td>0</td><td>-</td></tr>
+<tr class="lvl1"><td>BAS123</td><td>Linear Algebra</td><td>3</td><td>2</td><td>2</td><td>0</td><td>-</td></tr>
+<tr class="lvl1"><td>BAS124</td><td>Electronics</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
+<tr class="lvl1"><td>BCS103</td><td>Object Oriented Programming</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS102</td></tr>
+<tr class="lvl1"><td>BCS105</td><td>Computer Networks Fundamentals</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS101</td></tr>
+<tr class="lvl1"><td>BCS112</td><td>Technical Report Writing</td><td>3</td><td>2</td><td>2</td><td>0</td><td>-</td></tr>
+
+<!-- Year 2 -->
+<tr class="lvl2"><td rowspan="6">First Semester</td><td>GEN202</td><td>Communication & Presentation Skills</td><td>2</td><td>1</td><td>0</td><td>3</td><td>-</td></tr>
+<tr class="lvl2"><td>GEN201</td><td>Transparency & Human Rights</td><td>1</td><td>0</td><td>0</td><td>0</td><td>-</td></tr>
+<tr class="lvl2"><td>BAS201</td><td>Probability & Statistical Methods</td><td>3</td><td>2</td><td>2</td><td>0</td><td>-</td></tr>
+<tr class="lvl2"><td>BAS203</td><td>Differential Equations</td><td>3</td><td>2</td><td>2</td><td>0</td><td>BAS120</td></tr>
+<tr class="lvl2"><td>BCS206</td><td>Data Structures</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS102</td></tr>
+<tr class="lvl2"><td>BCS207</td><td>Logic Design</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BAS124</td></tr>
+
+<tr class="lvl2"><td rowspan="5">Second Semester</td><td>BAS225</td><td>Statistical Analysis</td><td>3</td><td>2</td><td>2</td><td>0</td><td>BAS201</td></tr>
+<tr class="lvl2"><td>BCS204</td><td>Fundamentals of Databases</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS206</td></tr>
+<tr class="lvl2"><td>BCS208</td><td>Design & Analysis of Algorithms</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS206</td></tr>
+<tr class="lvl2"><td>BCS209</td><td>Computer Architecture</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS207</td></tr>
+<tr class="lvl2"><td>BCS210</td><td>Operating Systems</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS101</td></tr>
+<tr class="lvl2"><td>Summer</td><td>SAD230</td><td>Field Training (I)</td><td>3</td><td>0</td><td>0</td><td>6</td><td>60 Credits</td></tr>
+
+<!-- Year 3 -->
+<tr class="lvl3"><td rowspan="6">First Semester</td><td>GEN301</td><td>Current Social Issues in Egypt</td><td>1</td><td>1</td><td>0</td><td>0</td><td>-</td></tr>
+<tr class="lvl3"><td>BCS311</td><td>Artificial Intelligence</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BAS122 + BAS201</td></tr>
+<tr class="lvl3"><td>SAD301</td><td>Software Engineering</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS103</td></tr>
+<tr class="lvl3"><td>SAD313</td><td>Information Storage and Management</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS105</td></tr>
+<tr class="lvl3"><td>SAD303</td><td>Web Development</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS102</td></tr>
+<tr class="lvl3"><td>SAD305</td><td>Computer Graphics</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BAS123</td></tr>
+
+<tr class="lvl3"><td rowspan="5">Second Semester</td><td>SAD304</td><td>Machine Learning</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS311</td></tr>
+<tr class="lvl3"><td>SAD306</td><td>Software Project Management</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
+<tr class="lvl3"><td>SAD307</td><td>Mobile Application Development</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS103</td></tr>
+<tr class="lvl3"><td>SAD308</td><td>Software Requirement Analysis</td><td>3</td><td>2</td><td>0</td><td>3</td><td>SAD301</td></tr>
+<tr class="lvl3"><td>SAD3xx</td><td>Elective (2)</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
+<tr class="lvl3"><td>Summer</td><td>SAD340</td><td>Field Training (II)</td><td>3</td><td>0</td><td>0</td><td>6</td><td>90 Credits</td></tr>
+
+<!-- Year 4 -->
+<tr class="lvl4"><td rowspan="6">First Semester</td><td>GEN401</td><td>Professional Ethics</td><td>2</td><td>1</td><td>2</td><td>0</td><td>-</td></tr>
+<tr class="lvl4"><td>SAD409</td><td>Image Processing</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BAS123</td></tr>
+<tr class="lvl4"><td>SAD410</td><td>Software Security</td><td>3</td><td>2</td><td>0</td><td>3</td><td>SAD301</td></tr>
+<tr class="lvl4"><td>SAD4xx</td><td>Elective (3)</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
+<tr class="lvl4"><td>SAD4xx</td><td>Elective (4)</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
+<tr class="lvl4"><td>SAD440</td><td>Graduation Project (1)</td><td>3</td><td>0</td><td>6</td><td>0</td><td>100 Credits</td></tr>
+
+<tr class="lvl4"><td rowspan="6">Second Semester</td><td>GEN407</td><td>Entrepreneurship</td><td>2</td><td>1</td><td>2</td><td>0</td><td>-</td></tr>
+<tr class="lvl4"><td>SAD411</td><td>Computer Vision</td><td>3</td><td>2</td><td>0</td><td>3</td><td>SAD409</td></tr>
+<tr class="lvl4"><td>SAD412</td><td>Software Testing & Quality Assurance</td><td>3</td><td>2</td><td>0</td><td>3</td><td>SAD301</td></tr>
+<tr class="lvl4"><td>SAD4xx</td><td>Elective (5)</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
+<tr class="lvl4"><td>SAD4xx</td><td>Elective (6)</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
+<tr class="lvl4"><td>SAD450</td><td>Graduation Project (2)</td><td>4</td><td>0</td><td>8</td><td>0</td><td>SAD440</td></tr>
+
+</tbody>
+</table>
+</div>
+
+</body>
+</html>
