@@ -135,6 +135,75 @@
     transition: 0.4s ease-in-out;
 }
 
+footer {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(8px);
+    margin-top: 40px;
+    padding: 30px 20px;
+    text-align: center;
+    color: #dcdcdc;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0px -8px 40px rgba(0,0,0,0.6);
+}
+
+.footer-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+}
+
+.footer-content p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 18px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.footer-links li a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #dcdcdc;
+    transition: 0.3s;
+}
+
+.footer-links li a:hover {
+    color: #00eaff;
+    text-shadow: 0 0 8px #00eaff;
+}
+
+.signature {
+    margin-top: 18px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+}
+
+.signature span {
+    background: linear-gradient(to right, #00eaff, #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    .footer-links {
+        gap: 14px;
+    }
+}
+
+
 /* ----------- Responsive Navbar ----------- */
 @media (max-width: 900px){
     nav {
@@ -397,5 +466,20 @@
         <p>المعدل التراكمي = (34 + 34.6) ÷ (12 + 14) = 2.64</p>
       </div>
     </div>
+    <footer>
+    <div class="footer-content">
+        <h3>CS Program</h3>
+        <p>Empowering students to become future innovators in software, AI, and research.</p>
+
+        <ul class="footer-links">
+            <li><a href="index.html">AI</a></li>
+            <li><a href="software.html">Software</a></li>
+            <li><a href="datascience.html">Data Science</a></li>
+            <li><a href="GPA.html">GPA</a></li>
+        </ul>
+    </div>
+
+    <p class="signature">Designed & Developed by <span>Ahmed Saaf</span></p>
+</footer>
   </body>
 </html>
