@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Data Science Curriculum</title>
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
     body {
         margin: 0;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,22 +17,23 @@
         overflow-x: hidden;
     }
 
+    /* -------------------- NAVBAR -------------------- */
     nav {
-        width: 96%;
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 40px;
-        background: rgba(0, 0, 0, 0.3);
+        padding: 15px 30px;
+        background: rgba(0, 0, 0, 0.35);
         backdrop-filter: blur(6px);
         position: sticky;
         top: 0;
         z-index: 100;
     }
 
-    nav .logo {
+    .logo {
         font-size: 22px;
-        font-weight: 700;
+        font-weight: bold;
         letter-spacing: 1px;
         text-transform: uppercase;
         background: linear-gradient(to right, #00c6ff, #0072ff);
@@ -36,7 +41,7 @@
         -webkit-text-fill-color: transparent;
     }
 
-    nav ul {
+    ul {
         list-style: none;
         display: flex;
         gap: 25px;
@@ -44,187 +49,190 @@
         padding: 0;
     }
 
-    nav ul li a {
+    ul li a {
         text-decoration: none;
-        color: #dcdcdc;
+        color: #ddd;
         font-weight: 500;
         transition: 0.3s;
     }
 
-    nav ul li a:hover {
+    ul li a:hover {
         color: #00eaff;
         text-shadow: 0 0 8px #00eaff;
     }
-/* Hide default checkbox */
-#menu-toggle {
-    display: none;
-}
 
-/* Hamburger styling */
-.hamburger {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: #00eaff;
-}
-
-/* Links animation (mobile collapsed state) */
-.nav-links {
-    display: flex;
-    gap: 25px;
-    transition: 0.4s ease-in-out;
-}
-
-/* ----------- Responsive Navbar ----------- */
-@media (max-width: 900px){
-    nav {
-        padding: 10px 20px;
+    /* Hamburger */
+    #menu-toggle {
+        display: none;
     }
 
     .hamburger {
-        display: block;
+        display: none;
+        font-size: 30px;
+        cursor: pointer;
+        color: #00eaff;
     }
 
     .nav-links {
-        position: absolute;
-        top: 65px;
-        right: -100%;
-        flex-direction: column;
-        background: rgba(0,0,0,0.85);
-        width: 200px;
-        padding: 20px;
-        border-radius: 10px 0 0 10px;
-        text-align: left;
-        gap: 20px;
-        backdrop-filter: blur(6px);
+        display: flex;
+        gap: 25px;
+        transition: 0.4s ease-in-out;
     }
 
-    #menu-toggle:checked ~ .nav-links {
-        right: 0;
-    }
-}
+    /* -------------------- RESPONSIVE NAVBAR -------------------- */
+    @media (max-width: 900px) {
+        .hamburger {
+            display: block;
+        }
 
+        .nav-links {
+            position: absolute;
+            top: 65px;
+            right: -100%;
+            flex-direction: column;
+            background: rgba(0, 0, 0, 0.9);
+            width: 220px;
+            padding: 20px;
+            border-radius: 10px 0 0 10px;
+            gap: 18px;
+            backdrop-filter: blur(6px);
+        }
+
+        #menu-toggle:checked ~ .nav-links {
+            right: 0;
+        }
+    }
+
+    /* -------------------- CONTENT BOX -------------------- */
     .container {
-        width: 92%;
-        margin: 40px auto 80px auto;
-        background: rgba(255, 255, 255, 0.04);
+        width: 94%;
+        margin: 35px auto;
+        background: rgba(255, 255, 255, 0.06);
         border-radius: 14px;
-        padding: 22px;
+        padding: 20px;
         box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.6);
-        overflow-x: hidden;
         backdrop-filter: blur(8px);
+        overflow-x: auto;
     }
 
+    .container h2 {
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 26px;
+    }
+
+    .container p {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.75);
+        margin-top: -5px;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+    /* -------------------- TABLE -------------------- */
     table {
         width: 100%;
         border-collapse: collapse;
         text-align: left;
         font-size: 14px;
-        table-layout: fixed;
-        word-wrap: break-word;
+        min-width: 850px;
     }
 
     th, td {
-        padding: 12px 14px;
-        border-bottom: 1px solid rgba(255,255,255,0.06);
+        padding: 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        word-wrap: break-word;
     }
 
-    thead th{
-        font-size: 13px;
+    thead th {
         text-transform: uppercase;
-        letter-spacing: 0.6px;
-        background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+        letter-spacing: 0.7px;
+        font-size: 13px;
+        background: rgba(255,255,255,0.04);
     }
 
-    tr:hover td{ background: rgba(255,255,255,0.02); }
-
-    /* Colors for each level/year */
-    .lvl1 td { background-color: rgba(255, 160, 122, 0.3); }  /* Coral */
-    .lvl2 td { background-color: rgba(144, 238, 144, 0.3); }  /* Light Green */
-    .lvl3 td { background-color: rgba(255, 255, 102, 0.3); }  /* Soft Yellow */
-    .lvl4 td { background-color: rgba(173, 216, 230, 0.3); }  /* Light Blue */
-
-    @media (max-width: 900px){
-        th, td{ padding:10px 8px; font-size:13px }
-        nav{ padding:12px 18px }
-        .container{ width:96%; padding:16px }
+    tr:hover td {
+        background: rgba(255,255,255,0.05);
     }
+
+    /* Level Background Colors */
+    .lvl1 td { background-color: rgba(255, 160, 122, 0.25); }
+    .lvl2 td { background-color: rgba(144, 238, 144, 0.25); }
+    .lvl3 td { background-color: rgba(255, 255, 102, 0.25); }
+    .lvl4 td { background-color: rgba(173, 216, 230, 0.25); }
+
+    /* Responsive Table Text */
+    @media (max-width: 600px) {
+        th, td { font-size: 12px; padding: 9px; }
+    }
+
+    /* -------------------- FOOTER -------------------- */
     footer {
-    width: 100%;
-    background: rgba(255,255,255,0.04);
-    backdrop-filter: blur(8px);
-    margin-top: 40px;
-    padding: 30px 20px;
-    text-align: center;
-    color: #dcdcdc;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0px -8px 40px rgba(0,0,0,0.6);
-}
-
-.footer-content h3 {
-    font-size: 20px;
-    font-weight: 700;
-    background: linear-gradient(to right, #00c6ff, #0072ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 8px;
-}
-
-.footer-content p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 18px;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 0;
-}
-
-.footer-links li a {
-    text-decoration: none;
-    font-size: 14px;
-    color: #dcdcdc;
-    transition: 0.3s;
-}
-
-.footer-links li a:hover {
-    color: #00eaff;
-    text-shadow: 0 0 8px #00eaff;
-}
-
-.signature {
-    margin-top: 18px;
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-}
-
-.signature span {
-    background: linear-gradient(to right, #00eaff, #00c6ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-}
-
-@media (max-width: 600px) {
-    .footer-links {
-        gap: 14px;
+        margin-top: 40px;
+        text-align: center;
+        padding: 35px 15px;
+        background: rgba(255,255,255,0.04);
+        border-top: 1px solid rgba(255,255,255,0.07);
+        box-shadow: 0px -8px 40px rgba(0,0,0,0.6);
     }
-}
 
+    footer h3 {
+        font-size: 20px;
+        font-weight: 700;
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 8px;
+    }
+
+    footer p {
+        color: rgba(255,255,255,0.7);
+        font-size: 14px;
+    }
+
+    .footer-links {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+        padding: 0;
+        margin: 15px 0;
+        flex-wrap: wrap;
+    }
+
+    .footer-links li a {
+        text-decoration: none;
+        font-size: 14px;
+        color: #dcdcdc;
+        transition: 0.3s;
+    }
+
+    .footer-links li a:hover {
+        color: #00eaff;
+        text-shadow: 0 0 8px #00eaff;
+    }
+
+    .signature {
+        font-size: 13px;
+        color: rgba(255,255,255,0.5);
+        margin-top: 10px;
+    }
+
+    .signature span {
+        background: linear-gradient(to right, #00eaff, #00c6ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+    }
 </style>
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav>
     <div class="logo">CS Program</div>
 
-    <input type="checkbox" id="menu-toggle">
+    <input type="checkbox" id="menu-toggle" />
     <label for="menu-toggle" class="hamburger">&#9776;</label>
 
     <ul class="nav-links">
@@ -235,10 +243,10 @@
     </ul>
 </nav>
 
-
+<!-- MAIN CONTENT -->
 <div class="container">
-<h2 style="text-align:center; margin-bottom:12px;">Data Science — 4-Year Curriculum</h2>
-<p style="text-align:center; color:rgba(255,255,255,0.7); margin-top:0; margin-bottom:20px;">Colors indicate different academic levels.</p>
+<h2>Data Science — 4-Year Curriculum</h2>
+<p>Colors indicate different academic levels.</p>
 
 <table>
 <thead>
@@ -255,7 +263,7 @@
 </thead>
 <tbody>
 
-<!-- Year 1 -->
+<!-- YEAR 1 -->
 <tr class="lvl1"><td rowspan="6">First Semester</td><td>GEN104</td><td>History of Science, Eng. & Technology</td><td>2</td><td>2</td><td>0</td><td>0</td><td>-</td></tr>
 <tr class="lvl1"><td>BAS120</td><td>Differential and Integral Calculus</td><td>3</td><td>2</td><td>2</td><td>0</td><td>-</td></tr>
 <tr class="lvl1"><td>BAS121</td><td>Physics</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
@@ -263,14 +271,14 @@
 <tr class="lvl1"><td>BCS101</td><td>Computer Science Fundamentals</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
 <tr class="lvl1"><td>BCS102</td><td>Structured Programming</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
 
-<tr class="lvl1"><td rowspan="6">Second Semester</td><td>GEN10X</td><td>Elective (1) From Language Courses List</td><td>2</td><td>1</td><td>2</td><td>0</td><td>-</td></tr>
+<tr class="lvl1"><td rowspan="6">Second Semester</td><td>GEN10X</td><td>Elective (1) Language</td><td>2</td><td>1</td><td>2</td><td>0</td><td>-</td></tr>
 <tr class="lvl1"><td>BAS123</td><td>Linear Algebra</td><td>3</td><td>2</td><td>2</td><td>0</td><td>-</td></tr>
 <tr class="lvl1"><td>BAS124</td><td>Electronics</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
 <tr class="lvl1"><td>BCS103</td><td>Object Oriented Programming</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS102</td></tr>
 <tr class="lvl1"><td>BCS105</td><td>Computer Networks Fundamentals</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS101</td></tr>
-<tr class="lvl1"><td>BAS201</td><td>Probability and Statistical Methods</td><td>3</td><td>2</td><td>2</td><td>0</td><td>-</td></tr>
+<tr class="lvl1"><td>BAS201</td><td>Probability & Statistical Methods</td><td>3</td><td>2</td><td>2</td><td>0</td><td>-</td></tr>
 
-<!-- Year 2 -->
+<!-- YEAR 2 -->
 <tr class="lvl2"><td rowspan="6">First Semester</td><td>GEN202</td><td>Communication & Presentation Skills</td><td>2</td><td>1</td><td>0</td><td>3</td><td>-</td></tr>
 <tr class="lvl2"><td>BAS225</td><td>Statistical Analysis</td><td>3</td><td>2</td><td>2</td><td>0</td><td>BAS201</td></tr>
 <tr class="lvl2"><td>GEN201</td><td>Transparency & Human Rights</td><td>1</td><td>0</td><td>0</td><td>0</td><td>-</td></tr>
@@ -280,28 +288,29 @@
 
 <tr class="lvl2"><td rowspan="5">Second Semester</td><td>BCS210</td><td>Operating Systems</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS101</td></tr>
 <tr class="lvl2"><td>BCS204</td><td>Fundamentals of Databases</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS206</td></tr>
-<tr class="lvl2"><td>BCS208</td><td>Design and Analysis of Algorithms</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS206</td></tr>
+<tr class="lvl2"><td>BCS208</td><td>Design & Analysis of Algorithms</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS206</td></tr>
 <tr class="lvl2"><td>BCS209</td><td>Computer Architecture</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS207</td></tr>
 <tr class="lvl2"><td>BCS213</td><td>Fundamentals of Data Science</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BAS201</td></tr>
 
 <tr class="lvl2"><td>Summer</td><td>DAS230</td><td>Field Training (I)</td><td>3</td><td>0</td><td>0</td><td>6</td><td>60 Credits</td></tr>
 
-<!-- Year 3 -->
+<!-- YEAR 3 -->
 <tr class="lvl3"><td rowspan="6">First Semester</td><td>GEN301</td><td>Current Social Issues in Egypt</td><td>1</td><td>1</td><td>0</td><td>0</td><td>-</td></tr>
 <tr class="lvl3"><td>BCS311</td><td>Artificial Intelligence</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BAS122 + BAS201</td></tr>
 <tr class="lvl3"><td>DAS301</td><td>Software Engineering</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS103</td></tr>
 <tr class="lvl3"><td>DAS308</td><td>Applied Regression Methods</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS213</td></tr>
-<tr class="lvl3"><td>DAS303</td><td>Data Visualization & Data-Driven Decision-Making</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BAS225</td></tr>
+<tr class="lvl3"><td>DAS303</td><td>Data Visualization & Decision Making</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BAS225</td></tr>
 <tr class="lvl3"><td>DAS305</td><td>Numerical Methods</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS311</td></tr>
 
 <tr class="lvl3"><td rowspan="5">Second Semester</td><td>DAS304</td><td>Machine Learning</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS311</td></tr>
 <tr class="lvl3"><td>DAS306</td><td>Big Data Technologies</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS311</td></tr>
 <tr class="lvl3"><td>DAS307</td><td>Data Mining</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS213</td></tr>
-<tr class="lvl3"><td>DAS317</td><td>Modeling and Simulation</td><td>3</td><td>2</td><td>0</td><td>3</td><td>DAS305</td></tr>
+<tr class="lvl3"><td>DAS317</td><td>Modeling & Simulation</td><td>3</td><td>2</td><td>0</td><td>3</td><td>DAS305</td></tr>
 <tr class="lvl3"><td>DAS3xx</td><td>Elective (2)</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
+
 <tr class="lvl3"><td>Summer</td><td>DAS340</td><td>Field Training (II)</td><td>3</td><td>0</td><td>0</td><td>6</td><td>90 Credits</td></tr>
 
-<!-- Year 4 -->
+<!-- YEAR 4 -->
 <tr class="lvl4"><td rowspan="6">First Semester</td><td>GEN401</td><td>Professional Ethics</td><td>2</td><td>1</td><td>2</td><td>0</td><td>-</td></tr>
 <tr class="lvl4"><td>DAS409</td><td>Deep Learning</td><td>3</td><td>2</td><td>0</td><td>3</td><td>DAS304</td></tr>
 <tr class="lvl4"><td>DAS410</td><td>Optimization Methods</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS311</td></tr>
@@ -319,19 +328,17 @@
 </tbody>
 </table>
 </div>
+
+<!-- FOOTER -->
 <footer>
-    <div class="footer-content">
-        <h3>CS Program</h3>
-        <p>Empowering students to become future innovators in software, AI, and research.</p>
-
-        <ul class="footer-links">
-            <li><a href="index.html">AI</a></li>
-            <li><a href="software.html">Software</a></li>
-            <li><a href="datascience.html">Data Science</a></li>
-            <li><a href="GPA.html">GPA</a></li>
-        </ul>
-    </div>
-
+    <h3>CS Program</h3>
+    <p>Empowering students to become future innovators in software, AI, and research.</p>
+    <ul class="footer-links">
+        <li><a href="index.html">AI</a></li>
+        <li><a href="software.html">Software</a></li>
+        <li><a href="datascience.html">Data Science</a></li>
+        <li><a href="GPA.html">GPA</a></li>
+    </ul>
     <p class="signature">Designed & Developed by <span>Ahmed Saad</span></p>
 </footer>
 
