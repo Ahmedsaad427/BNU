@@ -156,23 +156,29 @@ footer {
     }
 
     .nav-links {
-        position: absolute;
+        position: fixed; 
         top: 65px;
-        right: -100%;
+        right: -220px; 
         flex-direction: column;
         background: rgba(0,0,0,0.85);
         width: 200px;
+        max-width: 90%;
+        height: calc(100vh - 65px);
         padding: 20px;
         border-radius: 10px 0 0 10px;
         text-align: left;
         gap: 20px;
         backdrop-filter: blur(6px);
+        transition: right 0.4s ease-in-out;
+        overflow-y: auto; 
     }
 
     #menu-toggle:checked ~ .nav-links {
         right: 0;
     }
 }
+
+
 
 
     .container {
