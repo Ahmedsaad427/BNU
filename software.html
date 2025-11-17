@@ -6,6 +6,7 @@
 <title>Software Development Curriculum</title>
 <link rel="icon" type="image/png" href="software.png">
 <style>
+/* General Styles */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -16,7 +17,7 @@ body {
 
 /* Navbar */
 nav {
-    width: 96%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -95,6 +96,7 @@ nav ul li a:hover {
         backdrop-filter: blur(6px);
         transition: right 0.4s ease-in-out;
         overflow-y: auto;
+        z-index: 99;
     }
 
     #menu-toggle:checked ~ .nav-links { right: 0; }
@@ -127,14 +129,14 @@ th, td {
     border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-thead th{
+thead th {
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 0.6px;
     background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
 }
 
-tr:hover td{ background: rgba(255,255,255,0.02); }
+tr:hover td { background: rgba(255,255,255,0.02); }
 
 /* Colors per year */
 .lvl1 td { background-color: rgba(255, 160, 122, 0.3); }
@@ -205,11 +207,25 @@ footer {
     font-weight: 700;
 }
 
-/* Small Screens */
-@media (max-width: 900px){
-    th, td{ padding:10px 8px; font-size:13px }
-    nav{ padding:12px 18px }
-    .container{ width:96%; padding:16px }
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .container { width: 95%; }
+    th, td { font-size: 13px; padding: 10px 12px; }
+}
+
+@media (max-width: 768px) {
+    .container { width: 98%; padding: 16px; }
+    th, td { font-size: 12px; padding: 8px 10px; }
+}
+
+@media (max-width: 500px) {
+    nav .logo { font-size: 18px; }
+    .hamburger { font-size: 26px; }
+    .nav-links { width: 180px; }
+    th, td { font-size: 11px; padding: 6px 8px; }
+    h2 { font-size: 18px; }
+    .footer-content h3 { font-size: 16px; }
+    .footer-content p, .footer-links li a { font-size: 12px; }
 }
 </style>
 </head>
@@ -245,7 +261,6 @@ footer {
 </tr>
 </thead>
 <tbody>
-
 <!-- Year 1 -->
 <tr class="lvl1"><td rowspan="6">First Semester</td><td>GEN104</td><td>History of Sci., Engineering & Technology</td><td>2</td><td>2</td><td>0</td><td>0</td><td>-</td></tr>
 <tr class="lvl1"><td>BAS120</td><td>Differential and Integral Calculus</td><td>3</td><td>2</td><td>2</td><td>0</td><td>-</td></tr>
@@ -293,18 +308,16 @@ footer {
 
 <!-- Year 4 -->
 <tr class="lvl4"><td rowspan="6">First Semester</td><td>GEN401</td><td>Professional Ethics</td><td>2</td><td>1</td><td>2</td><td>0</td><td>-</td></tr>
-<tr class="lvl4"><td>SAD409</td><td>Image Processing</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BAS123</td></tr>
-<tr class="lvl4"><td>SAD410</td><td>Software Security</td><td>3</td><td>2</td><td>0</td><td>3</td><td>SAD301</td></tr>
-<tr class="lvl4"><td>SAD4xx</td><td>Elective (3)</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
-<tr class="lvl4"><td>SAD4xx</td><td>Elective (4)</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
-<tr class="lvl4"><td>SAD440</td><td>Graduation Project (1)</td><td>3</td><td>0</td><td>6</td><td>0</td><td>100 Credits</td></tr>
+<tr class="lvl4"><td>SAD409</td><td>Image Processing</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS305</td></tr>
+<tr class="lvl4"><td>SAD410</td><td>Cloud Computing</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS105</td></tr>
+<tr class="lvl4"><td>SAD411</td><td>Big Data Analytics</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BAS225</td></tr>
+<tr class="lvl4"><td>SAD412</td><td>Capstone Project I</td><td>3</td><td>0</td><td>0</td><td>6</td><td>SAD301</td></tr>
 
-<tr class="lvl4"><td rowspan="6">Second Semester</td><td>GEN407</td><td>Entrepreneurship</td><td>2</td><td>1</td><td>2</td><td>0</td><td>-</td></tr>
-<tr class="lvl4"><td>SAD411</td><td>Computer Vision</td><td>3</td><td>2</td><td>0</td><td>3</td><td>SAD409</td></tr>
-<tr class="lvl4"><td>SAD412</td><td>Software Testing & Quality Assurance</td><td>3</td><td>2</td><td>0</td><td>3</td><td>SAD301</td></tr>
-<tr class="lvl4"><td>SAD4xx</td><td>Elective (5)</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
-<tr class="lvl4"><td>SAD4xx</td><td>Elective (6)</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
-<tr class="lvl4"><td>SAD450</td><td>Graduation Project (2)</td><td>4</td><td>0</td><td>8</td><td>0</td><td>SAD440</td></tr>
+<tr class="lvl4"><td rowspan="5">Second Semester</td><td>SAD413</td><td>Capstone Project II</td><td>3</td><td>0</td><td>0</td><td>6</td><td>SAD412</td></tr>
+<tr class="lvl4"><td>SAD414</td><td>Cybersecurity</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS105</td></tr>
+<tr class="lvl4"><td>SAD415</td><td>Advanced Database Systems</td><td>3</td><td>2</td><td>0</td><td>3</td><td>BCS204</td></tr>
+<tr class="lvl4"><td>SAD416</td><td>Advanced Web Development</td><td>3</td><td>2</td><td>0</td><td>3</td><td>SAD303</td></tr>
+<tr class="lvl4"><td>SAD4xx</td><td>Elective (3)</td><td>3</td><td>2</td><td>0</td><td>3</td><td>-</td></tr>
 
 </tbody>
 </table>
